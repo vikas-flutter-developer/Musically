@@ -2,6 +2,18 @@
 
 Music Explorer is a Flutter application that lets users discover and browse music using a clean, modern UI. It is designed as a learning and starter project for building production-grade Flutter apps with a layered architecture.
 
+## Screenshots
+
+> The images below are stored under the `screenshots/` directory. If you rename or add screenshots, update these paths accordingly.
+
+| Home | Search | Details |
+| --- | --- | --- |
+| ![Home](screenshots/Screenshot_20251205_190119.png) | ![Search](screenshots/Screenshot_20251205_190127.png) | ![Details](screenshots/Screenshot_20251205_190159.png) |
+
+Additional screen:
+
+![More](screenshots/Screenshot_20251205_190214.png)
+
 ## Features
 
 - Browse music (albums / tracks / artists)
@@ -35,11 +47,13 @@ Typical Flutter structure (update if your structure differs):
 
 ## Getting Started
 
-### Prerequisites
+Below are step-by-step setup instructions for running the app locally.
 
-- Flutter SDK installed (stable channel recommended)
-- Android Studio / VS Code / IntelliJ IDEA with Flutter & Dart plugins
-- Android or iOS emulator, or a physical device
+### 1. Install Tools
+
+- Install the **Flutter SDK** (stable channel recommended)
+- Install an IDE: **Android Studio**, **VS Code**, or **IntelliJ IDEA** with the Flutter & Dart plugins
+- Install the **Android SDK** and create at least one Android emulator (via Android Studio), or prepare a physical Android device with USB debugging enabled
 
 Verify your Flutter setup:
 
@@ -47,22 +61,55 @@ Verify your Flutter setup:
 flutter doctor
 ```
 
-### Running the App
+Resolve any issues reported by `flutter doctor` before continuing.
 
-From the project root:
+### 2. Clone the Repository
+
+```bash
+git clone <your-repo-url>
+cd music_explorer_app
+```
+
+### 3. Get Dependencies
+
+From the project root, fetch all Flutter/Dart packages:
 
 ```bash
 flutter pub get
-flutter run
 ```
 
-To run on a specific device, list devices via:
+### 4. (Optional) Configure API Keys
+
+If the app talks to a remote music API (e.g. Spotify, Deezer, Last.fm), follow these steps (adapt as needed):
+
+1. Create an app on the provider dashboard
+2. Generate an API key / client ID
+3. Add the key to a safe place, for example:
+   - A `.env` file loaded at runtime, or
+   - A config file under `lib/config/` (do **not** commit real secrets)
+4. Update the code to read from this config if not already wired
+
+Document the exact steps here once your API is finalized.
+
+### 5. Run the App
+
+List available devices (emulators / physical):
 
 ```bash
 flutter devices
 ```
 
-…and then specify the device ID with `-d <device_id>`.
+Then run the app on the selected device:
+
+```bash
+flutter run
+```
+
+To target a specific device:
+
+```bash
+flutter run -d <device_id>
+```
 
 ## Configuration
 
